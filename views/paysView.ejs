@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Data</title>
+    <link rel="stylesheet" href="./style.css"> 
+    <style> 
+        body {
+                font-family: Arial, sans-serif;
+                background-color: #f3f3f3;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .data-table {
+                width: 80%;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+
+            .university-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .university-table th, .university-table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .university-button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            .flag-image {
+                vertical-align: middle;
+            }
+    </style>
+</head>
+<body>
+    <h1>Countries Website</h1>
+    <div class="data-table">
+        <table class="university-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Flag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(const p of pays) { %>
+                <tr>
+                    <td>
+                        <form action="/info" method="GET">
+                            <input type="hidden" name="name" value="<%= p.name.common %>">
+                            <button type="submit">
+                                <%= p.name.common %>
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <img src="<%= p.flags.png %>" width="20" height="15">
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

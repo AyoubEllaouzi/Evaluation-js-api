@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Data</title>
+    <link rel="stylesheet" href="./style.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .data-table {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .university-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .university-table th, .university-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .university-table th {
+            background-color: #f2f2f2;
+        }
+
+        .university-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .university-table tbody tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countrie Info</h1>
+    <div class="data-table">
+        <table class="university-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Population</th>
+                    <th>Region</th>
+                    <th>Currency</th>
+                    <th>Languages</th>
+                    <th>Timezones</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td><%= country.name.common %></td>
+                    <td><%= country.capital[0] %></td>
+                    <td><%= country.population %></td>
+                    <td><%= country.region %></td>
+                    <td><%= Object.values(country.currencies)[0].name %> (<%= Object.values(country.currencies)[0].symbol %>)</td>
+                    <td><%= Object.values(country.languages).join(', ') %></td>
+                    <td><%= country.timezones.join(', ') %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
